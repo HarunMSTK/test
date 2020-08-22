@@ -1,48 +1,8 @@
-print('YÜKLENİYOR..')
-#AHAHAHA :)
-from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
-import os
-chrome_options = Options()
-chrome_options.add_argument('--no-sandbox')
-chrome_options.add_argument('--disable-dev-shm-usage')
-driver = webdriver.Chrome(options=chrome_options)
-try:
-		os.system('clear')
-		print('UYARI : SIFRE ISTENMEYECEKTIR.')
-		user = input('Kullanıcı Adı > ')
-		print('Teşekkürler! Hesap Aranıyor...')
-		driver.get('https://msptools.cc/tools/mspstats/stats.php?username=' +
-		           user + '&server=TR')
-		print('Kullanıcı Bulunuyor...')
-		username = driver.find_element_by_id(id_='username')
-		id = driver.find_element_by_id(id_='actorid')
-		level = driver.find_element_by_id(id_='levelTxt')
-		fame = driver.find_element_by_id(id_='fame')
-		coins = driver.find_element_by_id(id_='starcoins')
-		dia = driver.find_element_by_id(id_='diamonds')
-		tvip = driver.find_element_by_id(id_='totalVip')
-		tfriends = driver.find_element_by_id(id_='totalFriends')
-		tvipfriends = driver.find_element_by_id(id_='vipFriends')
-		os.system('clear')
-		username1 = (username.text)
-		id1 = (id.text)
-		level1 = (level.text)
-		fame1 = (fame.text)
-		coins1 = (coins.text)
-		dia1 = (dia.text)
-		tvip1 = (tvip.text)
-		tfriends1 = (tfriends.text)
-		tvipfriends1 = (tvipfriends.text)
-		print(username1.replace("Username:", "Kullanıcı Adı:"))
-		print(id1.replace("ActorId:", "Kullanıcı ID:"))
-		print(level1)
-		print(fame1)
-		print(coins1)
-		print(dia1)
-		print(tvip1.replace("Total VIP Days:", "Toplam Vip Günü:"))
-		print(tfriends1.replace("Total Friends", "Arkadaş Sayısı:"))
-		print(tvipfriends1.replace("VIP Friends", "Vip Arkadaş Sayısı:"))
-		driver.close()
-except:
-		('Kritik Bir Hata Oluştu Sayfayı Yenileyin.')
+from flask import Flask
+app = Flask(__name__)
+@app.route('/') # this is the home page route
+def hello_world(): # this is the home page function that generates the page code
+    return ("sel.name")
+   
+if __name__ == '__main__':
+  app.run(host='0.0.0.0', port=8080) # This line is required to run Flask on repl.it
